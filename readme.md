@@ -1,31 +1,27 @@
-# Angular Router
+# AngularRoutingExampleNotMatthias
 
-## Introduction
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
 
-We already worked on [examples using the PokeAPI](https://github.com/rstropek/htl-mobile-computing/tree/master/rest-fundamentals/9040-pokelist) in this year, can you remember? This time we are going to use this public Web API again.
+## Development server
 
-You have to create an Angular 7 app that uses the Angular router. **Note** that it is highly recommended to complete this homework because it is similar to the example in the upcoming exam.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Requirements
+## Code scaffolding
 
-* Create a new Angular application including the [Angular Router](https://rstropek.github.io/htl-mobile-computing/#/12/19).
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-* Display a list of all Pokemon names under the URL *http://yourserver/pokemons*. Every Pokemon name should be a hyperlink to a site with details about the Pokemon (see requirement regarding *Pokemon details* below).
+## Build
 
-* The user must be able to enter a part of a Pokemon name (e.g. *charm*) to filter the Pokemon list. If the user does not enter a filter string, display the entire list of Pokemons. ***Note** that it is not enough to just process the first 20 Pokemons from the PokeAPI, you have to process all Pokemons.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-* If the user does not enter any path in the URL (i.e. just *http://yourserver/*), redirect the user to the list of Pokemons (i.e. *http://yourserver/pokemons*).
+## Running unit tests
 
-* Pokemon details must be reachable at *http://yourserver/pokemons/1* (where *1* is the ID of the Pokemon).
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-* Display the *name of the pokemon* and its *ability names* on the details page.
+## Running end-to-end tests
 
-## Technical Requirements
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-* Use Angular 7
+## Further help
 
-* You can use Stackblitz or a locally created Angular solution. **Note** that a locally created Angular solution is recommended in order to prepare for the upcoming exam.
-
-## Extra Point
-
-Send me a link to the working application deployed on the internet via a GitHub issue to earn an extra point for your grade.
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
