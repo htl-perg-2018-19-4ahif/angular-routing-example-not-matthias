@@ -1,3 +1,7 @@
+//
+// Tutorial: https://www.techiediaries.com/angular-httpclient/
+//
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -61,6 +65,7 @@ export interface IAbility {
     name: string;
     description: string;
   };
+
   is_hidden: boolean;
   slot: number;
 }
@@ -77,7 +82,10 @@ export class PokemonApiService {
   // Returns a list of pokemon items (IPokemonListItem)
   //
   public async getPokemonList(): Promise<IPokemonList> {
-    const response: IPokemonListResponse = await this.http.get<IPokemonListResponse>(`${this.url}/`).toPromise();
+    const count = await this.getPokemonCount();
+    const response: IPokemonListResponse = await this.http
+      .get<IPokemonListResponse>(`${this.url}/?offset=0&limit=${count}`)
+      .toPromise();
 
     return {
       list: response.results
@@ -114,5 +122,12 @@ export class PokemonApiService {
     };
 
     return pokemon;
+  }
+
+  //
+  // Returns the pokemon count
+  //
+  public async getPokemonCount(): Promise<number> {
+    return (await this.http.get<IPokemonListResponse>(`${this.url}/`).toPromise()).count;
   }
 }

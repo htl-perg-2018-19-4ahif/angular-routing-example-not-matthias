@@ -1,3 +1,20 @@
-<p>
-  pokemon-list works!
-</p>
+<div>
+  <hr />
+
+  <!-- Filter -->
+  <div>
+    <label for="filter">Filter: </label>
+    <input type="text" id="filter" [(ngModel)]="pokeFilter" />
+  </div>
+
+  <hr />
+
+  <!-- Pokelist -->
+  <div>
+    <h2>PokemonList:</h2>
+
+    <p *ngFor="let pokemon of filteredPokemons; let i = index">
+      <a routerLink="{{ i }}">{{ pokemon.name }}</a>
+    </p>
+  </div>
+</div>
