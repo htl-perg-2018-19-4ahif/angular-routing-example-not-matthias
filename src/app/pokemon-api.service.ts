@@ -84,7 +84,7 @@ export class PokemonApiService {
   public async getPokemonList(): Promise<IPokemonList> {
     const count = await this.getPokemonCount();
     const response: IPokemonListResponse = await this.http
-      .get<IPokemonListResponse>(`${this.url}/?offset=0&limit=${count}`)
+      .get<IPokemonListResponse>(`${this.url}/?limit=${count}`)
       .toPromise();
 
     return {
@@ -132,6 +132,6 @@ export class PokemonApiService {
   // Returns the pokemon count
   //
   public async getPokemonCount(): Promise<number> {
-    return (await this.http.get<IPokemonListResponse>(`${this.url}/`).toPromise()).count;
+    return (await this.http.get<IPokemonListResponse>(`${this.url}/?limit=1`).toPromise()).count;
   }
 }

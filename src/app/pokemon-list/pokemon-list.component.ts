@@ -27,6 +27,19 @@ export class PokemonListComponent implements OnInit {
   }
 
   //
+  // Returns the pokemon id
+  //
+  public getPokemonId(url: string): string {
+    const splittedUrl: string[] = url.split('/');
+
+    if (splittedUrl) {
+      return splittedUrl[splittedUrl.length - 2];
+    } else {
+      return '-1';
+    }
+  }
+
+  //
   // Getter: returns the pokemon list
   //
   get filteredPokemons(): IPokemonListItem[] {
