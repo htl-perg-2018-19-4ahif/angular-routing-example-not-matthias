@@ -14,7 +14,7 @@
     <h2>PokemonList:</h2>
 
     <p *ngFor="let pokemon of filteredPokemons; let i = index">
-      <a routerLink="{{ i }}">{{ pokemon.name }}</a>
+      <a routerLink="{{ i + 1 }}">{{ pokemon.name }}</a>
     </p>
   </div>
 </div>

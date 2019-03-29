@@ -1,3 +1,32 @@
-<p>
-  pokemon-detail works!
-</p>
+<div>
+  <hr />
+
+  <!-- if(!pokemonDetail) -->
+  <div *ngIf="!pokemonDetails">
+    <h1>Could not find pokemon.</h1>
+  </div>
+
+  <!-- else -->
+  <div *ngIf="pokemonDetails">
+    <h1>Details:</h1>
+
+    <!-- Image -->
+    <img src="{{ pokemonDetails.image }}" alt="Pokemon Image" />
+
+    <!-- Name -->
+    <p class="bold">Name:</p>
+    <p>{{ pokemonDetails.name }}</p>
+    <br />
+
+    <!-- Weight -->
+    <p class="bold">Weight :</p>
+    <p>{{ pokemonDetails.weight }}</p>
+    <br />
+
+    <!-- Abilities -->
+    <div>
+      <p class="bold">Abilities:</p>
+      <p *ngFor="let ability of pokemonDetails.abilities">{{ ability.ability.name }}</p>
+    </div>
+  </div>
+</div>

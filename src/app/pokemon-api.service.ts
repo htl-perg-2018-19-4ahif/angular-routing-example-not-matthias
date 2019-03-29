@@ -61,7 +61,7 @@ export interface IPokemon {
 }
 
 export interface IAbility {
-  abilities: {
+  ability: {
     name: string;
     description: string;
   };
@@ -96,16 +96,20 @@ export class PokemonApiService {
   // Returns the specified pokemon if found
   //
   public async getPokemonById(index: number): Promise<IPokemon> {
-    const response: IPokemonResponse = await this.http.get<IPokemonResponse>(`${this.url}/${index}/`).toPromise();
+    try {
+      const response: IPokemonResponse = await this.http.get<IPokemonResponse>(`${this.url}/${index}/`).toPromise();
 
-    const pokemon: IPokemon = {
-      name: response.name,
-      weight: response.weight,
-      image: response.sprites.front_default,
-      abilities: response.abilities
-    };
+      const pokemon: IPokemon = {
+        name: response.name,
+        weight: response.weight,
+        image: response.sprites.front_default,
+        abilities: response.abilities
+      };
 
-    return pokemon;
+      return pokemon;
+    } catch (error) {
+      console.log('Failed to fetch pokemon by id.');
+    }
   }
 
   //
